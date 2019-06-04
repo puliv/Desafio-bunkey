@@ -1,0 +1,2 @@
+export const FIRST_VALUE = "SECOND VALUE"
+export const SECOND_VALUE = "SECOND VALUE"
