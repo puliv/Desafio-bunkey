@@ -6,3 +6,9 @@ export const numOne = dispatch => valueOne => {
         payload: valueOne
     })
 }
+export const numTwo = dispatch => valueTwo => {
+    dispatch({
+        type: actions.SECOND_VALUE,
+        payload: valueTwo
+    })
+}

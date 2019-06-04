@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class InputNum extends Component {
+class InputNumOne extends Component {
     constructor() {
         super()
         this.state = {
@@ -17,7 +17,7 @@ class InputNum extends Component {
         return (
             <div>
                 <input
-                    type="text"
+                    type='text'
                     onChange={this.temporalNumber}
                     value={this.state.temporalNum}
                 />
@@ -26,4 +26,4 @@ class InputNum extends Component {
     }
 }
 
-export default InputNum
+export default InputNumOne

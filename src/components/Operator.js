@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 
 class Operator extends Component {
+
+    handleSelect = (e) => {
+        console.log(e.target.value)
+    }
+
     render() {
         return (
             <div>
-                <select>
-                    <option value="Sum">Sumar</option>
-                    <option value="Subtract">Restar</option>
-                    <option value="Multiply">Multiplicar</option>
-                    <option value="Divide">Dividir</option>
+                <select onClick={this.handleSelect}>
+                    <option value='+' >Sumar</option>
+                    <option value='-' >Restar</option>
+                    <option value='*' >Multiplicar</option>
+                    <option value='/' >Dividir</option>
                 </select>
             </div>
         )

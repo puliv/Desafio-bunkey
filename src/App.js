@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import InputNum from './components/InputNum';
+import InputNumOne from './components/InputNumOne';
 import Operator from './components/Operator';
 import Calculate from './components/ButtonCalculate';
 import Result from './components/Result';
+import InputNumTwo from './components/InputNumTwo';
 
 function App() {
   return (
     <div>
-      <InputNum/>
-      <InputNum/>
+      <InputNumOne/>
+      <InputNumTwo/>
       <Operator/>
       <Calculate/>
       <Result/>
