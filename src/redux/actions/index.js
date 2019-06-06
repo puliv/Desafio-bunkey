@@ -12,9 +12,11 @@ export const numTwo = dispatch => valueTwo => {
         payload: valueTwo
     })
 }
-export const operations = dispatch => currentOperation => {
+export const operations = dispatch => operatorSign => {
     dispatch({
         type: actions.OPERATION,
-        payload: currentOperation
+        payload: {
+            operatorSign: operatorSign
+        }
     })
 }

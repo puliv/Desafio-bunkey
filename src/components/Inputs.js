@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import Operator from './Operator'
 import { connect } from 'react-redux'
 import { numOne, numTwo } from '../redux/actions/index'
 
-
-class InputNumOne extends Component {
+class Inputs extends Component {
     constructor() {
         super()
         this.state = {
@@ -14,15 +14,19 @@ class InputNumOne extends Component {
 
     provisionalNumber = (e) => {
         this.setState({
-            temporalNum: e.target.value,
             provisionalNum: e.target.value
         })
     }
 
-    tempValue = (e) => {
+    temporalNumber = (e) => {
+        this.setState({
+            temporalNum: e.target.value
+        })
+    }
+
+    tempValue = () => {
         this.props.getFirstValue(this.state.temporalNum)
-        this.props.getSecondValue(this.state.provitionalNum)
-        // console.log(this.props.reducer.temporalNum)
+        this.props.getSecondValue(this.state.provisionalNum)
     }
 
     render() {
@@ -30,14 +34,15 @@ class InputNumOne extends Component {
             <div>
                 <input
                     type='text'
-                    onChange={this.provisionalNumber}
+                    onChange={this.temporalNumber}
                     value={this.state.temporalNum}
                 />
                 <input
                     type='text'
                     onChange={this.provisionalNumber}
-                    value={this.state.provitionalNum}
+                    value={this.state.provisionalNum}
                 />
+                <Operator />
                 <button onClick={this.tempValue}>
                     Calcular
                 </button>
@@ -56,7 +61,7 @@ const mapActionsToProps = (dispatch) => {
     return {
         getFirstValue: numOne(dispatch),
         getSecondValue: numTwo(dispatch)
-    }
+    };
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(InputNumOne)
+export default connect(mapStateToProps, mapActionsToProps)(Inputs)

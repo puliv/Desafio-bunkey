@@ -1,23 +1,33 @@
 import React, { Component } from 'react'
+import { operations } from '../redux/actions/index'
+import { connect } from 'react-redux'
 
 class Operator extends Component {
-
-    handleSelect = (e) => {
-        console.log(e.target.value)
-    }
 
     render() {
         return (
             <div>
-                <select onClick={this.handleSelect}>
-                    <option value='+' >Sumar</option>
-                    <option value='-' >Restar</option>
-                    <option value='*' >Multiplicar</option>
-                    <option value='/' >Dividir</option>
+                <select onChange={(e) => this.props.chooseOperator(e.target.value)}>
+                    <option value="sumar" >Sumar</option>
+                    <option value="restar" >Restar</option>
+                    <option value="multipicar" >Multiplicar</option>
+                    <option value="dividir" >Dividir</option>
                 </select>
             </div>
         )
     }
 }
 
-export default Operator
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    };
+};
+
+const mapActionsToProps = (dispatch) => {
+    return {
+        chooseOperator: operations(dispatch)
+    };
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(Operator)
