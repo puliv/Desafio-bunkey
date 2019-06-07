@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -13,6 +14,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,5 +47,5 @@
   "bugs": {
     "url": "https://github.com/puliv/Desafio-bunkey/issues"
   },
-  "homepage": "https://github.com/puliv/Desafio-bunkey#readme"
+  "homepage": "https://puliv.github.io/Desafio-bunkey#readme"
 }
