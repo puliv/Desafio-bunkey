@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { operations } from '../redux/actions/index'
 import { connect } from 'react-redux'
+import '../App.css';
+
 
 class Operator extends Component {
 
     render() {
         return (
-            <div>
+            <div className="calculator">
                 <select onChange={(e) => this.props.chooseOperator(e.target.value)}>
                     <option value="sumar" >Sumar</option>
                     <option value="restar" >Restar</option>

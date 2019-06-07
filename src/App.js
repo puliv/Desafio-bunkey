@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 function App() {
   return (
-    <div>
+    <div className="calculator">
       <Inputs />
       <Result />
     </div>

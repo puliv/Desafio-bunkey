@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Operator from './Operator'
 import { connect } from 'react-redux'
 import { numOne, numTwo, theResult } from '../redux/actions/index'
+import '../App.css';
 
 class Inputs extends Component {
 
@@ -11,7 +12,6 @@ class Inputs extends Component {
             content = content + 'num1=' + this.props.reducer.valueOne + '&num2=' + this.props.reducer.valueTwo;
             // console.log(content)
             let url = 'https://cors-anywhere.herokuapp.com/http://test.bunkey.tv:3000/';
-
             // console.log(this.props.reducer.currentOperation);
             fetch(url + this.props.reducer.currentOperation,
                 {
@@ -35,17 +35,20 @@ class Inputs extends Component {
 
     render() {
         return (
-            <div className="inputs">
+            <div className="calculator">
                 <input
+                    className="inputs"
                     type='text'
                     onChange={(e) => this.props.getFirstValue(e.target.value)}
                 />
                 <input
+                    className="inputs"
                     type='text'
                     onChange={(e) => this.props.getSecondValue(e.target.value)}
-                    />
+                />
                 <Operator />
-                <button onClick={this.onClick} >
+                <button
+                    onClick={this.onClick} >
                     Calcular
                 </button>
             </div >
@@ -54,7 +57,7 @@ class Inputs extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state)
     return {
         ...state
     };
