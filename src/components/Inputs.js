@@ -1,49 +1,51 @@
 import React, { Component } from 'react'
 import Operator from './Operator'
 import { connect } from 'react-redux'
-import { numOne, numTwo } from '../redux/actions/index'
+import { numOne, numTwo, theResult } from '../redux/actions/index'
 
 class Inputs extends Component {
-    constructor() {
-        super()
-        this.state = {
-            temporalNum: '',
-            provisionalNum: ''
-        }
-    }
 
-    provisionalNumber = (e) => {
-        this.setState({
-            provisionalNum: e.target.value
-        })
-    }
+    onClick = () => {
+        const calculate = () => {
+            let content = '';
+            content = content + 'num1=' + this.props.reducer.valueOne + '&num2=' + this.props.reducer.valueTwo;
+            // console.log(content)
+            let url = 'https://cors-anywhere.herokuapp.com/http://test.bunkey.tv:3000/';
 
-    temporalNumber = (e) => {
-        this.setState({
-            temporalNum: e.target.value
-        })
-    }
-
-    tempValue = () => {
-        this.props.getFirstValue(this.state.temporalNum)
-        this.props.getSecondValue(this.state.provisionalNum)
+            // console.log(this.props.reducer.currentOperation);
+            fetch(url + this.props.reducer.currentOperation,
+                {
+                    method: 'POST',
+                    body: content,
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Origin': 'application/x-www-form-urlencoded',
+                    }
+                })
+                .then(data => data.json())
+                .then(data => {
+                    // console.log(data)
+                    this.props.getResult(data.result)
+                })
+                .catch(error => console.error('Error:', error));
+        };
+        calculate();
     }
 
     render() {
         return (
-            <div>
+            <div className="inputs">
                 <input
                     type='text'
-                    onChange={this.temporalNumber}
-                    value={this.state.temporalNum}
+                    onChange={(e) => this.props.getFirstValue(e.target.value)}
                 />
                 <input
                     type='text'
-                    onChange={this.provisionalNumber}
-                    value={this.state.provisionalNum}
-                />
+                    onChange={(e) => this.props.getSecondValue(e.target.value)}
+                    />
                 <Operator />
-                <button onClick={this.tempValue}>
+                <button onClick={this.onClick} >
                     Calcular
                 </button>
             </div >
@@ -52,6 +54,7 @@ class Inputs extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         ...state
     };
@@ -60,7 +63,8 @@ const mapStateToProps = (state) => {
 const mapActionsToProps = (dispatch) => {
     return {
         getFirstValue: numOne(dispatch),
-        getSecondValue: numTwo(dispatch)
+        getSecondValue: numTwo(dispatch),
+        getResult: theResult(dispatch)
     };
 };
 

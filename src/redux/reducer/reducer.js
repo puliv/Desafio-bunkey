@@ -1,4 +1,4 @@
-import * as actions from '../actions/actionTypes';
+import { FIRST_VALUE, SECOND_VALUE, OPERATION, RESULT } from '../actions/actionTypes';
 
 export default (
     state = {
@@ -8,22 +8,27 @@ export default (
         outcome: '0'
     }, action) => {
     switch (action.type) {
-        case actions.FIRST_VALUE:
+        case FIRST_VALUE:
             return {
                 ...state,
-                valueOne: parseInt(action.payload)
+                valueOne: action.payload
             };
-        case actions.SECOND_VALUE:
+        case SECOND_VALUE:
             return {
                 ...state,
-                valueTwo: parseInt(action.payload)
+                valueTwo: action.payload
             };
-        case actions.OPERATION:
+        case OPERATION:
             return {
                 ...state,
                 currentOperation: action.payload.operatorSign
             };
-        default: return { ...state }
+        case RESULT:
+            return {
+                ...state,
+                outcome: action.payload
+            };
+        default: return state
     }
 }
 

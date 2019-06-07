@@ -20,3 +20,9 @@ export const operations = dispatch => operatorSign => {
         }
     })
 }
+export const theResult = dispatch => totalResult => {
+    dispatch({
+        type: actions.RESULT,
+        payload: totalResult
+    })
+}

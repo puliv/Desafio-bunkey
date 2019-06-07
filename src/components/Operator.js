@@ -16,6 +16,7 @@ class Operator extends Component {
             </div>
         )
     }
+
 }
 
 const mapStateToProps = (state) => {

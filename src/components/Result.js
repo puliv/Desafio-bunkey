@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+
 class Result extends Component {
+
     render() {
         return (
             <div>
-                resultado es: <p>{this.props.reducer}</p>
+                resultado<p>{this.props.outcome}</p>
             </div>
         )
     }
