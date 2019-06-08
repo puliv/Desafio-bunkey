@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -47,5 +47,5 @@
   "bugs": {
     "url": "https://github.com/puliv/Desafio-bunkey/issues"
   },
-  "homepage": "https://puliv.github.io/Desafio-Bunkey"
+  "homepage": "https://puliv.github.io/Desafio-bunkey"
 }
