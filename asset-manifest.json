@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Desafio-bunkey/static/css/main.09a880d7.chunk.css",
+    "main.js": "/Desafio-bunkey/static/js/main.c138b363.chunk.js",
+    "main.js.map": "/Desafio-bunkey/static/js/main.c138b363.chunk.js.map",
+    "runtime~main.js": "/Desafio-bunkey/static/js/runtime~main.948e7b43.js",
+    "runtime~main.js.map": "/Desafio-bunkey/static/js/runtime~main.948e7b43.js.map",
+    "static/js/2.933d840c.chunk.js": "/Desafio-bunkey/static/js/2.933d840c.chunk.js",
+    "static/js/2.933d840c.chunk.js.map": "/Desafio-bunkey/static/js/2.933d840c.chunk.js.map",
+    "index.html": "/Desafio-bunkey/index.html",
+    "precache-manifest.91fa097cdc2c8a0d80ef005318a8a58e.js": "/Desafio-bunkey/precache-manifest.91fa097cdc2c8a0d80ef005318a8a58e.js",
+    "service-worker.js": "/Desafio-bunkey/service-worker.js",
+    "static/css/main.09a880d7.chunk.css.map": "/Desafio-bunkey/static/css/main.09a880d7.chunk.css.map"
+  }
+}
